@@ -1,24 +1,34 @@
-<!DOCTYPE html>
-
-<html>
-
-<head>
-</head>
-
-<body>
-    <form id="form">
-        <label for="rope-lengths">Enter rope lengths:</label>
-        <input type="text" id="rope-lengths">
-        <button type="button" onclick="calculateMinCost()">Calculate</button>
-      </form>
-      <div id="result"></div>
+<input type="text" id="inputRopes" />
+<button onclick="calculateMinCost()">Submit</button>
+<div id="result"></div>
 
 <script>
-    type="text/javascript" src="./script.js"
+function calculateMinCost() {
+  // Get the input value
+  const inputElement = document.getElementById("inputRopes");
+  const input = inputElement.value.trim();
 
-  </script>
-  
+  // Split the input into an array of rope lengths
+  const ropes = input.split(",").map(length => parseInt(length.trim(), 10));
 
-</body>
+  // Check if the input is valid
+  if (ropes.some(isNaN)) {
+    document.getElementById("result").textContent = "Invalid input. Please provide comma-separated integers only.";
+    return;
+  }
 
-</html>
+  // Calculate the minimum cost of connecting the ropes
+  const minimumCost = minCostToConnectRopes(ropes);
+
+  // Display the result
+  document.getElementById("result").textContent = `Minimum cost of connecting the ropes: ${minimumCost}`;
+}
+
+function minCostToConnectRopes(ropes) {
+  // Implementation of the minCostToConnectRopes function from the previous response
+  // ...
+
+  // Return the minimum cost
+  return cost;
+}
+</script>
